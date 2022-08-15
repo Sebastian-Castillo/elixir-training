@@ -22,22 +22,30 @@ defmodule SophosApp.AdventCode.Day3 do
   end
 
   defmodule Star2 do
+    import Integer
+
     def evaluate_star_2(str) do
       str
       |> String.split("", trim: true)
-
-      # [[],[]]
+      |> add_rule_robot_santa([[], []], 1)
+      |> Enum.map(fn x ->
+        ([[0, 0]] ++ x)
+        |> Enum.scan(fn [x, y], [x2, y2] -> [x + x2, y + y2] end)
+      end)
+      |> Enum.concat()
+      |> Enum.uniq()
+      |> Enum.count()
     end
 
-    defp evaluate_route(route) do
-      # route
-      # |> Enum.map(&rule)
-      # |> Enum.scan(fn [x, y], [x2, y2] -> [x + x2, y + y2] end)
-      # # initial position of the route
-      # |> Enum.concat([[0, 0]])
-      # |> Enum.uniq()
-      # |> Enum.count()
+    defp add_rule_robot_santa([h | t], [x, y], index) when is_even(index) do
+      add_rule_robot_santa(t, [x ++ [rules(h)], y], index + 1)
     end
+
+    defp add_rule_robot_santa([h | t], [x, y], index) when is_odd(index) do
+      add_rule_robot_santa(t, [x, y ++ [rules(h)]], index + 1)
+    end
+
+    defp add_rule_robot_santa(arr, list, index), do: list
 
     def rules(rule) do
       %{

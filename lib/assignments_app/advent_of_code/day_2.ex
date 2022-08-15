@@ -26,14 +26,18 @@ defmodule SophosApp.AdventCode.Day2 do
       |> Enum.map(fn x ->
         String.split(x, "x", trim: true)
         |> Enum.map(&String.to_integer/1)
+        |> Enum.sort()
         |> calc_dimensions()
-        |> Enum.sum()
       end)
       |> Enum.sum()
     end
 
     defp calc_dimensions([l, w, h]) do
-      [l + l + w + w, l * w * h]
+      [l, w, h]
+      |> Enum.take(2)
+      |> Enum.map(&(&1 * 2))
+      |> Enum.concat([l * w * h])
+      |> Enum.sum()
     end
   end
 end

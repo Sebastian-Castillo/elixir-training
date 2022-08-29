@@ -1,4 +1,4 @@
-defmodule SophosApp.FizzBuzz do
+defmodule SophosAppAssignments.FizzBuzz do
   # Apply fizz_buzz
   def fizz_buzz(number),
     do: Enum.map(1..number, fn n -> fizz_buzz(rem(n, 3), rem(n, 5), n) end)

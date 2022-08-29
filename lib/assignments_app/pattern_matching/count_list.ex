@@ -1,4 +1,4 @@
-defmodule SophosApp.CountList do
+defmodule SophosAppAssignments.CountList do
   # Count List
   def size(list), do: size(list, 0)
   defp size([], n), do: n

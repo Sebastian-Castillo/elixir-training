@@ -1,4 +1,4 @@
-defmodule SophosApp.AdventCode.Day1 do
+defmodule SophosAppAssignments.AdventCode.Day1 do
   defmodule Star1 do
     def evaluate_star_1(str) do
       fun = fn

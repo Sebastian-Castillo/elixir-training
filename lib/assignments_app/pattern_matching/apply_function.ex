@@ -1,4 +1,4 @@
-defmodule SophosApp.ApplyFunction do
+defmodule SophosAppAssignments.ApplyFunction do
   # Apply elements
   def apply_list(list, fun), do: apply_list(list, fun, [])
   defp apply_list([], _fun, list), do: list

@@ -15,3 +15,4 @@ end
 
 
 # {:ok, supervisor} = SophosAppAssignments.FactorialSupervisor.start_link []
+# [{_, pid, _, _}] = Supervisor.which_children supervisor

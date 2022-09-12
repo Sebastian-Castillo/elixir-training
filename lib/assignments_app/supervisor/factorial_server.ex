@@ -1,4 +1,4 @@
-defmodule SophosApp.FactorialServer do
+defmodule SophosAppAssignments.FactorialServer do
   alias SophosAppAssignments.Factorial
 
   def handle_message({:compute, n}, _caller, state) do
